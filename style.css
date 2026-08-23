@@ -1,3 +1,19 @@
+:root{
+    --color5: #2E5EB8;
+    --color4: #4DA0FF;
+    --color3: #68B0FD;
+    --color2: #9CCCFC;
+    --color1: #CCE3FF;
+}
+
+.darkMode{
+    --color1: #002d80;
+    --color2: #002855;
+    --color3: #023e7d;
+    --color4: #0466c8;
+    --color5: #7db7ff;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,13 +21,14 @@
 
 body{
     min-height: 100;
-    background-color: #a9d6e5;
+    background-color: var(--color2);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 nav{
-    background-color: #01ABF4;
-    box-shadow:3px 3px 5px rgba(0,0,0,0.1);
+    background-color: var(--color1);
+    box-shadow:3px 5px 5px rgba(0, 0, 0, 0.2);
+    height: 50px;
 }
 
 nav ul{
@@ -22,27 +39,32 @@ nav ul{
     align-items: center;
 }
 
-nav li{
-    height: 50px;
-}
-
 nav a{
     height: 100%;
-    padding: 0 30px;
+    padding: 4px 15px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: var(--color5);
+    font-size: 20px;
+    fill: var(--color5)
 }
 
+nav .icon-row-inner:hover,
 nav a:hover{
-    background-color: #0C75C0;
+    color: var(--color4);
+    fill: var(--color4);
+    transition: ease-in-out 150ms;
 }
-
-nav 
 
 nav li:first-child{
     margin-right: auto;
+}
+
+.selectedTabPhone a, .selectedTab a{
+    font-weight: bold;
+    background-color: none;
+    border-radius: 15px;
 }
 
 .sidebar{
@@ -50,7 +72,7 @@ nav li:first-child{
     top: 0;
     left: 0;
     height: 100vh;
-    width: 150px;
+    width: 180px;
     z-index: 999;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -61,16 +83,53 @@ nav li:first-child{
     justify-content: flex-start;
 }
 
+.sidebar .icon-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+}
+.icon-row-inner{
+    display: flex;
+    gap: 4px;
+}
+.icon-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 6px;
+}
+
 .showOnMobile{
     display: none;
+}
+
+h2{
+    color: var(--color5);
+    padding: 10px;
+}
+
+.link{
+    color: var(--color5);
+    padding: 5px;
+
 }
 
 @media(max-width: 600px){
     .hideOnMobile{
         display: none;
     }
+    .selectedTab{
+        display: none;
+    }
     .showOnMobile{
         display: block;
+        background-color: var(--color3);
+        border-radius: 15px;
+    }
+    nav{
+        background-color: transparent;
+        box-shadow: none;
     }
 }
-
